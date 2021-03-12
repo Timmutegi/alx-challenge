@@ -1,7 +1,7 @@
 <template>
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
-      <q-toolbar>
+      <q-toolbar style="background-color: #ffffff; height: 60px;">
         <q-btn
           flat
           dense
@@ -17,14 +17,14 @@
     <q-drawer
         v-model="leftDrawerOpen"
         show-if-above
-        :width="250"
+        :width="256"
         :breakpoint="400"
       >
-        <q-scroll-area style="height: calc(100% - 150px); margin-top: 150px; border-right: 1px solid #ddd">
+        <q-scroll-area style="color: #334d6e; height: calc(100% - 150px); margin-top: 150px; border-right: 1px solid #ddd; font-weight: 500;" class="my-font">
           <q-list padding>
-            <q-item to="/" clickable v-ripple>
+            <q-item to="/" exact clickable v-ripple>
               <q-item-section avatar>
-                <q-icon name="dashboard" />
+                <q-icon class="icon" name="dashboard" />
               </q-item-section>
 
               <q-item-section>
@@ -32,9 +32,9 @@
               </q-item-section>
             </q-item>
 
-            <q-item active clickable v-ripple>
+            <q-item clickable v-ripple>
               <q-item-section avatar>
-                <q-icon name="task" />
+                <q-icon class="icon" name="task" />
               </q-item-section>
 
               <q-item-section>
@@ -44,7 +44,7 @@
 
             <q-item clickable v-ripple>
               <q-item-section avatar>
-                <q-icon name="email" />
+                <q-icon class="icon" name="email" />
               </q-item-section>
 
               <q-item-section>
@@ -54,7 +54,7 @@
 
             <q-item to="/contacts" clickable v-ripple>
               <q-item-section avatar>
-                <q-icon name="person" />
+                <q-icon class="icon" name="person" />
               </q-item-section>
 
               <q-item-section>
@@ -64,7 +64,7 @@
 
             <q-item clickable v-ripple>
               <q-item-section avatar>
-                <q-icon name="chat" />
+                <q-icon class="icon" name="chat" />
               </q-item-section>
 
               <q-item-section>
@@ -74,7 +74,7 @@
 
             <q-item clickable v-ripple>
               <q-item-section avatar>
-                <q-icon name="drafts" />
+                <q-icon class="icon" name="drafts" />
               </q-item-section>
 
               <q-item-section>
@@ -84,7 +84,7 @@
             <q-separator/>
             <q-item clickable v-ripple>
               <q-item-section avatar>
-                <q-icon name="settings" />
+                <q-icon class="icon" name="settings" />
               </q-item-section>
 
               <q-item-section>
@@ -105,7 +105,7 @@
         </q-img>
       </q-drawer>
 
-    <q-page-container>
+    <q-page-container style="background-color: #f5f6f8">
       <router-view />
     </q-page-container>
   </q-layout>
@@ -122,3 +122,10 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+  .icon {
+    color: #C2CFE0;
+  }
+
+</style>
