@@ -1,9 +1,17 @@
 <template>
-  <q-page padding>
-    <q-btn color="primary" label="Add contact" />
+  <q-page padding >
+    <div class="button">
+      <q-btn color="primary" no-caps label="Add contact" class="btn my-font"/>
+    </div>
+
     <q-table
-      :data="rows"
+      class="table my-font"
+      :data="data"
+      :columns="columns"
       row-key="name"
+      selection="multiple"
+      :selected.sync="selected"
+      :pagination="initialPagination"
     />
   </q-page>
 </template>
@@ -12,7 +20,21 @@
 export default {
   data () {
     return {
-      rows: [
+      initialPagination: {
+        page: 1,
+        rowsPerPage: 10
+      },
+      selected: [],
+      columns: [
+        { name: 'name', align: 'left', label: 'Name', field: 'name', sortable: true },
+        { name: 'email', align: 'left', label: 'Email', field: 'email' },
+        { name: 'company_name', align: 'left', label: 'Company name', field: 'company_name' },
+        { name: 'role', align: 'left', label: 'Role', field: 'role' },
+        { name: 'forecast', align: 'left', label: 'Forecast', field: 'forecast' },
+        { name: 'recent_activity', align: 'left', label: 'Recent Activity', field: 'recent_activity' }
+
+      ],
+      data: [
         {
           name: 'Lindsey Stroud',
           email: 'linsey.stroud@gmail.com',
@@ -93,9 +115,37 @@ export default {
           forecast: '45 %',
           recent_activity: 'Nov 26, 2018'
         }
-
       ]
     }
   }
 }
 </script>
+
+<style lang="scss">
+  .button {
+    display: flex;
+    justify-content: flex-end;
+    .btn {
+      width: 160px;
+      height: 42px;
+      font-size: 13px;
+      font-weight: 600;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: 0.13px;
+      text-align: center;
+      color: #ffffff;
+      border-radius: 4px;
+      box-shadow: 0 4px 10px 0 rgba(16, 156, 241, 0.24);
+      background-color: #109cf1;
+    }
+
+  }
+  .table {
+    margin-top: 20px;
+    tr {
+      height: 64px;
+    }
+  }
+</style>
