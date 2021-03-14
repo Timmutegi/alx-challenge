@@ -41,7 +41,7 @@
           </q-card-section>
           <q-separator/>
           <div class="small">
-            <line-chart :chart-data="datacollection" :options="options" :backgroundColor="gradientFill"></line-chart>
+            <line-chart :chart-data="datacollection" :options="options" :styles="myStyles" :backgroundColor="gradientFill"></line-chart>
           </div>
         </q-card>
         <q-card class="card2 my-font" flat-bordered>
@@ -60,14 +60,14 @@
 
 <script>
 import LineChart from './LineChart.js'
-var ctx = document.getElementById('line-chart').getContext('2d')
-var gradientFill = ctx.createLinearGradient(0, 50, 0, 300)
-gradientFill.addColorStop(0, 'rgba(128, 182, 244, 0.6)')
-gradientFill.addColorStop(1, 'rgba(16, 156, 241, 0)')
+if (document.getElementById('line-chart')) {
+  var ctx = document.getElementById('line-chart').getContext('2d')
+  var gradientFill = ctx.createLinearGradient(0, 50, 0, 300)
+  gradientFill.addColorStop(0, 'rgba(128, 182, 244, 0.6)')
+  gradientFill.addColorStop(1, 'rgba(16, 156, 241, 0)')
+}
 export default {
-  components: {
-    LineChart
-  },
+  components: { LineChart },
   data () {
     return {
       gradientFill: null,
@@ -141,19 +141,20 @@ export default {
         }
       ]
     }
+  },
+  computed: {
+    myStyles () {
+      return {
+        backgroundColor: gradientFill,
+        height: '240px',
+        position: 'relative'
+      }
+    }
   }
 }
 </script>
 
-<style lang="scss">
-  #line-chart {
-    max-width: 435px;
-    max-height: 240px;
-  }
-  .small {
-    max-width: 600px;
-    max-height: 300px;
-  }
+<style lang="scss" scoped>
   .top {
     display: flex;
     justify-content: space-between;
@@ -177,7 +178,7 @@ export default {
   .card1 {
     width: 100%;
     max-width: 635px;
-    height: 718px;
+    min-height: 718px;
     margin: 36px;
     .task {
       margin-top: 24px;
@@ -224,7 +225,6 @@ export default {
     }
   }
   .col {
-    margin-top: 0px;
     margin: 0px 36px;
   }
   .card2 {
