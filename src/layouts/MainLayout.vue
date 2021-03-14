@@ -1,109 +1,135 @@
 <template>
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
-      <q-toolbar style="background-color: #ffffff; height: 60px;">
-        <q-btn
-          flat
-          dense
-          round
-          icon="menu"
-          aria-label="Menu"
-          @click="leftDrawerOpen = !leftDrawerOpen"
-        />
-
-      </q-toolbar>
+      <q-toolbar style="background-color: #ffffff; height: 60px;"></q-toolbar>
     </q-header>
 
     <q-drawer
-        v-model="leftDrawerOpen"
-        show-if-above
-        :width="256"
-        :breakpoint="400"
-      >
-        <q-scroll-area style="color: #334d6e; height: calc(100% - 150px); margin-top: 150px; border-right: 1px solid #ddd; font-weight: 500;" class="my-font">
-          <q-list padding>
-            <q-item to="/" exact clickable v-ripple>
+      v-model="drawer"
+      show-if-above
+
+      :mini="!drawer || miniState"
+      @click.capture="drawerClick"
+
+      :width="256"
+      :breakpoint="400"
+      bordered
+      style="font-weight: 500;"
+    >
+      <q-scroll-area class="fit my-font">
+        <q-list>
+          <q-item to="/" exact clickable v-ripple class="app items">
+            <q-item-section avatar class="avatar">
+              Saas
+            </q-item-section>
+
+            <q-item-section>
+              Kit
+            </q-item-section>
+          </q-item>
+
+          <q-separator/>
+
+          <q-item to="/" exact clickable v-ripple class="items">
+            <q-item-section avatar>
+              <q-avatar size="46px" class="q-mb-sm">
+                <img src="https://cdn.quasar.dev/img/boy-avatar.png">
+              </q-avatar>
+            </q-item-section>
+
+            <q-item-section class="user">
+              Sierra Fergusson
+              <span>s.fergusson@gmail.com</span>
+            </q-item-section>
+          </q-item>
+
+          <q-item to="/" exact clickable v-ripple class="items">
+            <q-item-section avatar>
+              <q-icon class="icon" name="dashboard" />
+            </q-item-section>
+
+            <q-item-section>
+              Dashboard
+            </q-item-section>
+          </q-item>
+
+          <q-item clickable v-ripple class="items">
+            <q-item-section avatar>
+              <q-icon class="icon" name="task" />
+            </q-item-section>
+
+            <q-item-section>
+              Tasks
+            </q-item-section>
+          </q-item>
+
+          <q-item clickable v-ripple class="items">
+            <q-item-section avatar>
+              <q-icon class="icon" name="email" />
+            </q-item-section>
+
+            <q-item-section>
+              Email
+            </q-item-section>
+          </q-item>
+
+          <q-item to="/contacts" clickable v-ripple class="items">
+            <q-item-section avatar>
+              <q-icon class="icon" name="person" />
+            </q-item-section>
+
+            <q-item-section>
+              Contacts
+            </q-item-section>
+          </q-item>
+
+          <q-item clickable v-ripple class="items">
+            <q-item-section avatar>
+              <q-icon class="icon" name="chat" />
+            </q-item-section>
+
+            <q-item-section>
+              Chat
+            </q-item-section>
+          </q-item>
+
+          <q-item clickable v-ripple class="items">
+            <q-item-section avatar>
+              <q-icon class="icon" name="drafts" />
+            </q-item-section>
+
+            <q-item-section>
+              Deals
+            </q-item-section>
+          </q-item>
+
+          <q-separator/>
+
+          <q-item clickable v-ripple class="items">
+            <q-item-section avatar>
+              <q-icon class="icon" name="settings" />
+            </q-item-section>
+
+            <q-item-section>
+              Settings
+            </q-item-section>
+          </q-item>
+
+          <div class="toggle">
+            <q-item clickable v-ripple class="toggle items">
               <q-item-section avatar>
-                <q-icon class="icon" name="dashboard" />
+                <q-toggle size="xs" class="icon" v-model="miniState" @click="miniState = true"/>
               </q-item-section>
 
               <q-item-section>
-                Dashboard
+                Toggle sidebar
               </q-item-section>
             </q-item>
-
-            <q-item clickable v-ripple>
-              <q-item-section avatar>
-                <q-icon class="icon" name="task" />
-              </q-item-section>
-
-              <q-item-section>
-                Tasks
-              </q-item-section>
-            </q-item>
-
-            <q-item clickable v-ripple>
-              <q-item-section avatar>
-                <q-icon class="icon" name="email" />
-              </q-item-section>
-
-              <q-item-section>
-                Email
-              </q-item-section>
-            </q-item>
-
-            <q-item to="/contacts" clickable v-ripple>
-              <q-item-section avatar>
-                <q-icon class="icon" name="person" />
-              </q-item-section>
-
-              <q-item-section>
-                Contacts
-              </q-item-section>
-            </q-item>
-
-            <q-item clickable v-ripple>
-              <q-item-section avatar>
-                <q-icon class="icon" name="chat" />
-              </q-item-section>
-
-              <q-item-section>
-                Chat
-              </q-item-section>
-            </q-item>
-
-            <q-item clickable v-ripple>
-              <q-item-section avatar>
-                <q-icon class="icon" name="drafts" />
-              </q-item-section>
-
-              <q-item-section>
-                Deals
-              </q-item-section>
-            </q-item>
-            <q-separator/>
-            <q-item clickable v-ripple>
-              <q-item-section avatar>
-                <q-icon class="icon" name="settings" />
-              </q-item-section>
-
-              <q-item-section>
-                Settings
-              </q-item-section>
-            </q-item>
-          </q-list>
-        </q-scroll-area>
-
-        <q-img class="absolute-top" src="https://cdn.quasar.dev/img/material.png" style="height: 150px">
-          <div class="absolute-bottom bg-transparent">
-            <q-avatar size="56px" class="q-mb-sm">
-              <img src="https://cdn.quasar.dev/img/boy-avatar.png">
-            </q-avatar>
-            <div class="text-weight-bold">Timothy Mbaka</div>
-            <div>@Timmutegi</div>
           </div>
-        </q-img>
-      </q-drawer>
+
+        </q-list>
+      </q-scroll-area>
+    </q-drawer>
 
     <q-page-container style="background-color: #f5f6f8">
       <router-view />
@@ -117,15 +143,50 @@ export default {
   name: 'MainLayout',
   data () {
     return {
-      leftDrawerOpen: false
+      value: true,
+      leftDrawerOpen: false,
+      drawer: false,
+      miniState: true
+    }
+  },
+  methods: {
+    drawerClick (e) {
+      if (this.miniState) {
+        this.miniState = false
+        e.stopPropagation()
+      }
     }
   }
 }
 </script>
 
 <style lang="scss">
+  .items {
+    padding-left: 24px;
+  }
+  .app {
+    color: #109cf1;
+    font-size: 18px;
+    height: 60px;
+    .avatar {
+      padding-right: 8px;
+    }
+  }
+  .user {
+    span {
+      font-size: 11px;
+      color: #90a0b7;
+    }
+  }
   .icon {
     color: #C2CFE0;
+  }
+  .toggle {
+    position: absolute;
+    bottom: -25vh;
+    font-size: 11px;
+    width: 100%;
+    color: #90a0b7;
   }
 
 </style>
