@@ -8,7 +8,7 @@
       class="table my-font"
       :data="data"
       :columns="columns"
-      row-key="name"
+      row-key="id"
       selection="multiple"
       :selected.sync="selected"
       :pagination="initialPagination"
@@ -17,7 +17,7 @@
     <q-dialog v-model="prompt">
       <q-card style="min-width: 350px">
         <q-card-section>
-          <!-- <q-form
+          <q-form
             @submit="onSubmit"
             @reset="onReset"
             class="q-gutter-md"
@@ -51,7 +51,7 @@
               <q-btn label="Submit" type="submit" color="primary"/>
               <q-btn label="Reset" type="reset" color="primary" flat class="q-ml-sm" />
             </div>
-          </q-form> -->
+          </q-form>
         </q-card-section>
       </q-card>
     </q-dialog>
@@ -62,6 +62,10 @@
 export default {
   data () {
     return {
+      name: '',
+      model: '',
+      associated: '',
+      title: '',
       options: [
         'Office meet-up', 'Call', 'Event'
       ],
@@ -82,6 +86,7 @@ export default {
       ],
       data: [
         {
+          id: 1,
           name: 'Lindsey Stroud',
           email: 'lindsey.stroud@gmail.com',
           company_name: 'Hatchbuck',
@@ -90,6 +95,7 @@ export default {
           recent_activity: '5 Minutes ago'
         },
         {
+          id: 2,
           name: 'Nicci Troiani',
           email: 'nicci.troiani@gmail.com',
           company_name: 'Slack',
@@ -98,6 +104,7 @@ export default {
           recent_activity: '14 Minutes ago'
         },
         {
+          id: 3,
           name: 'George Fields',
           email: 'george.fields@gmail.com',
           company_name: 'Clockify',
@@ -106,6 +113,7 @@ export default {
           recent_activity: '6 Hours ago'
         },
         {
+          id: 4,
           name: 'Rebecca Moore',
           email: 'rebecca.moore@gmail.com',
           company_name: 'Upwork',
@@ -114,6 +122,7 @@ export default {
           recent_activity: 'Dec 14, 2018'
         },
         {
+          id: 5,
           name: 'Jane Doe',
           email: 'jane.doe@gmail.com',
           company_name: 'Trello',
@@ -122,6 +131,7 @@ export default {
           recent_activity: 'Dec 12, 2018'
         },
         {
+          id: 6,
           name: 'Jones Dermot',
           email: 'dermot.jones@gmail.com',
           company_name: 'Slack',
@@ -130,6 +140,7 @@ export default {
           recent_activity: 'Dec 11, 2018'
         },
         {
+          id: 7,
           name: 'Martin Merces',
           email: 'martin.merces@gmail.com',
           company_name: 'Google',
@@ -138,6 +149,7 @@ export default {
           recent_activity: 'Dec 9, 2018'
         },
         {
+          id: 8,
           name: 'Franz Ferdinand',
           email: 'franz.ferdiand@gmail.com',
           company_name: 'Facebook',
@@ -146,6 +158,7 @@ export default {
           recent_activity: 'Dec 6, 2018'
         },
         {
+          id: 9,
           name: 'John Smith',
           email: 'john.smith@gmail.com',
           company_name: 'Skype',
@@ -154,6 +167,7 @@ export default {
           recent_activity: 'Nov 30, 2018'
         },
         {
+          id: 10,
           name: 'Judith Williams',
           email: 'judith.williams@gmail.com',
           company_name: 'Google',
@@ -162,6 +176,17 @@ export default {
           recent_activity: 'Nov 26, 2018'
         }
       ]
+    }
+  },
+  methods: {
+    onSubmit () {
+
+    },
+
+    onReset () {
+      this.name = null
+      this.title = null
+      this.associated = false
     }
   }
 }
