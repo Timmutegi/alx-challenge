@@ -6,6 +6,9 @@ const
 
 const app = express()
 
-app.use(history())
+app.use(history({
+  disableDotRule: true,
+  verbose: true
+}))
 app.use(serveStatic(__dirname + '/dist'))
 app.listen(port)
