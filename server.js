@@ -11,10 +11,10 @@ app.use(history({
   verbose: true
 }))
 
-app.use(serveStatic(__dirname + '/dist'))
+app.use(serveStatic(__dirname + '/dist/spa'))
 
 app.get('/', function (req, res) {
-  res.render(path.join(__dirname + '/dist/index.html'));
+  res.render(path.join(__dirname + '/dist/spa/index.html'));
 })
 
 app.listen(port)
