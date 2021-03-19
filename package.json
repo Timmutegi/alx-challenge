@@ -6,7 +6,6 @@
   "author": "Timothy Mbaka",
   "private": true,
   "scripts": {
-    "lint": "eslint --ext .js,.vue ./",
     "build": "quasar build",
     "start": "node server.js",
     "heroku-postbuild": "webpack --config webpack.prod.js"
