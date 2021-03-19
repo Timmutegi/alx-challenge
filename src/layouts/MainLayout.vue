@@ -1,7 +1,17 @@
 <template>
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
-      <q-toolbar style="background-color: #ffffff; height: 60px;"></q-toolbar>
+      <q-toolbar style="background-color: #ffffff; height: 60px;">
+        <q-btn flat round dense>
+          <q-icon name="search" color="black"/>
+        </q-btn>
+        <q-toolbar-title>
+
+        </q-toolbar-title>
+        <q-btn flat round dense>
+          <q-icon name="search" color="black"/>
+        </q-btn>
+      </q-toolbar>
     </q-header>
 
     <q-drawer
