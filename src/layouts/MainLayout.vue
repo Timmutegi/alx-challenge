@@ -5,11 +5,12 @@
         <q-btn flat round dense>
           <q-icon name="search" color="black"/>
         </q-btn>
+        <q-input borderless v-model="text" color="#f5f6f8" placeholder="Global Search" style="font-size: 12px;"/>
         <q-toolbar-title>
 
         </q-toolbar-title>
         <q-btn flat round dense>
-          <q-icon name="search" color="black"/>
+          <q-icon name="notifications_active" color="black"/>
         </q-btn>
       </q-toolbar>
     </q-header>
@@ -105,7 +106,7 @@
 
           <q-item clickable v-ripple class="items">
             <q-item-section avatar>
-              <q-icon class="icon" name="drafts" />
+              <q-icon class="icon" name="local_offer" />
             </q-item-section>
 
             <q-item-section>
@@ -153,6 +154,7 @@ export default {
   name: 'MainLayout',
   data () {
     return {
+      text: '',
       value: true,
       leftDrawerOpen: false,
       drawer: false,
