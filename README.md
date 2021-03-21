@@ -1,26 +1,16 @@
 # Quasar App (alx-challenge)
+Author: Timothy Mbaka
 
-A Quasar Framework app
+## Application Purpose
+  This is a simple web application meant to meet the requirement for the ALX Front-End Engineer coding assignment.
 
-## Install the dependencies
-```bash
-npm install
-```
+## Technologies Used
+  The application is made up of a simple server created using Node JS & Express.
+  The Frontend of the application has been created using the Quasar framework.
 
-### Start the app in development mode (hot-code reloading, error reporting, etc.)
-```bash
-quasar dev
-```
+## Interfaces
 
-### Lint the files
-```bash
-npm run lint
-```
+## Deployment
+  The application has been deployed on Heroku and can be accessed through https://polar-mesa-42065.herokuapp.com/
 
-### Build the app for production
-```bash
-quasar build
-```
 
-### Customize the configuration
-See [Configuring quasar.conf.js](https://quasar.dev/quasar-cli/quasar-conf-js).
