@@ -6,7 +6,10 @@
           <p class="title">8 tasks completed out of 10</p>
           <p class="show">Show: <span> This week</span></p>
         </div>
-        <q-linear-progress :value="progress" rounded color="#2ed47a" class="q-mt-sm progress" />
+        <div class="progress">
+          <q-linear-progress :value="progress" rounded color="green" class="q-mt-sm" />
+        </div>
+
         <p class="day">23 December, Sunday</p>
         <q-separator/>
         <q-card-section>
@@ -42,7 +45,7 @@
           </q-card-section>
           <q-separator/>
           <div class="small">
-            <line-chart :chart-data="datacollection" :options="options" :styles="myStyles" :backgroundColor="gradientFill"></line-chart>
+            <line-chart :chart-data="datacollection" :styles="myStyles" :backgroundColor="gradientFill"></line-chart>
           </div>
         </q-card>
         <q-card class="card2 my-font" flat-bordered>
@@ -53,6 +56,9 @@
             </div>
           </q-card-section>
           <q-separator/>
+          <div class="small">
+            <dough-nut :chart-data="chartdata" :styles="myStyles"></dough-nut>
+          </div>
         </q-card>
       </div>
     </div>
@@ -61,6 +67,7 @@
 
 <script>
 import LineChart from './LineChart.js'
+import DoughNut from './DoughNut.js'
 if (document.getElementById('line-chart')) {
   var ctx = document.getElementById('line-chart').getContext('2d')
   var gradientFill = ctx.createLinearGradient(0, 50, 0, 300)
@@ -68,10 +75,10 @@ if (document.getElementById('line-chart')) {
   gradientFill.addColorStop(1, 'rgba(16, 156, 241, 0)')
 }
 export default {
-  components: { LineChart },
+  components: { LineChart, DoughNut },
   data () {
     return {
-      progress: 0.4,
+      progress: 0.8,
       gradientFill: null,
       datacollection: {
         labels: ['1 Dec', '8 Dec', '16 Dec', '31 Dec'],
@@ -83,38 +90,15 @@ export default {
           }
         ]
       },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        legend: {
-          alignment: 'start'
-        },
-        scales: {
-          yAxes: [{
-            type: 'linear',
-            display: true,
-            gridLines: {
-              borderDash: [10, 6],
-              zeroLineColor: 'transparent'
-            },
-            scaleLabel: {
-              display: true,
-              fontStyle: 'bold'
-            },
-            ticks: {
-              autoSkip: true,
-              maxTicksLimit: 10,
-              stepSize: 50,
-              beginAtZero: true
-            }
-          }],
-          xAxes: [{
-            gridLines: {
-              color: '#FFFFFF',
-              zeroLineColor: 'transparent'
-            }
-          }]
-        }
+      chartdata: {
+        labels: ['Active', 'Completed', 'Ended'],
+        datasets: [
+          {
+            label: 'Data One',
+            backgroundColor: ['#2ed47a', '#ffb946', '#f7685b'],
+            data: [6, 3, 1]
+          }
+        ]
       },
       tasks: [
         {
@@ -148,8 +132,9 @@ export default {
     myStyles () {
       return {
         backgroundColor: gradientFill,
-        height: '240px',
-        position: 'relative'
+        height: '280px',
+        position: 'relative',
+        padding: '10px'
       }
     }
   }
@@ -173,9 +158,7 @@ export default {
     }
   }
   .progress {
-    margin: 0px 24px;
-    // padding: 0px 24px;
-    // width: 100%;
+    margin: 24px;
   }
   .day {
     padding: 16px 24px;
@@ -243,6 +226,9 @@ export default {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      p {
+        margin: 0px;
+      }
       .title {
         font-size: 15px;
         font-weight: 500;
