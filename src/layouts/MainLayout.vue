@@ -59,17 +59,17 @@
               <q-icon class="icon" name="dashboard" />
             </q-item-section>
 
-            <q-item-section>
+            <q-item-section class="title">
               Dashboard
             </q-item-section>
           </q-item>
 
           <q-item clickable v-ripple class="items">
             <q-item-section avatar>
-              <q-icon class="icon" name="task" />
+              <q-icon class="icon" name="splitscreen" />
             </q-item-section>
 
-            <q-item-section>
+            <q-item-section class="title">
               Tasks
             </q-item-section>
           </q-item>
@@ -79,7 +79,7 @@
               <q-icon class="icon" name="email" />
             </q-item-section>
 
-            <q-item-section>
+            <q-item-section class="title">
               Email
             </q-item-section>
           </q-item>
@@ -89,7 +89,7 @@
               <q-icon class="icon" name="person" />
             </q-item-section>
 
-            <q-item-section>
+            <q-item-section class="title">
               Contacts
             </q-item-section>
           </q-item>
@@ -99,7 +99,7 @@
               <q-icon class="icon" name="chat" />
             </q-item-section>
 
-            <q-item-section>
+            <q-item-section class="title">
               Chat
             </q-item-section>
           </q-item>
@@ -109,7 +109,7 @@
               <q-icon class="icon" name="local_offer" />
             </q-item-section>
 
-            <q-item-section>
+            <q-item-section class="title">
               Deals
             </q-item-section>
           </q-item>
@@ -118,10 +118,10 @@
 
           <q-item clickable v-ripple class="items">
             <q-item-section avatar>
-              <q-icon class="icon" name="settings" />
+              <q-icon class="icon" name="more_horiz" />
             </q-item-section>
 
-            <q-item-section>
+            <q-item-section class="title">
               Settings
             </q-item-section>
           </q-item>
@@ -175,6 +175,25 @@ export default {
 <style lang="scss">
   .items {
     padding-left: 24px;
+    // .q-router-link--active {
+    //   color: #109cf1;
+    // }
+    // .title {
+    //   color: #334d6e;
+    //   font-weight: 500;
+    // }
+    // .icon {
+    //   color: #C2CFE0;
+    // }
+
+    // .title .active {
+    //   color: red;
+    //   font-weight: 500;
+    // }
+    // .icon {
+    //   color: #C2CFE0;
+    // }
+    // color: #C2CFE0;
   }
   .app {
     color: #109cf1;
@@ -190,9 +209,7 @@ export default {
       color: #90a0b7;
     }
   }
-  .icon {
-    color: #C2CFE0;
-  }
+
   .toggle {
     position: absolute;
     bottom: -25vh;
