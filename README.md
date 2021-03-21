@@ -1,4 +1,4 @@
-# Quasar App (ALX Front End Coding Challenge)
+# ALX Front End Coding Challenge
     Author: Timothy Mbaka
 
 ## Application Purpose
@@ -8,10 +8,9 @@
     The application is made up of a simple server created using Node JS & Express.
     The Frontend of the application has been created using the Quasar framework.
 
-## Interfaces
-    ![Screenshot](/screenshots/Screenshot1.png)
-
 ## Deployment
-    The application has been deployed on Heroku and can be accessed through https://polar-mesa-42065.herokuapp.com/
+    The application has been deployed on Heroku and can be accessed through [a link](https://polar-mesa-42065.herokuapp.com/)
 
+## Interfaces
+![Screenshot](/screenshots/Screenshot1.png)
 
