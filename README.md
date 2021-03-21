@@ -9,7 +9,7 @@
     The Frontend of the application has been created using the Quasar framework.
 
 ## Deployment
-    The application has been deployed on Heroku and can be accessed through [a link](https://polar-mesa-42065.herokuapp.com/)
+    The application has been deployed on Heroku and can be accessed through [This is a link](https://polar-mesa-42065.herokuapp.com/)
 
 ## Interfaces
 ![Screenshot](/screenshots/Screenshot1.png)
