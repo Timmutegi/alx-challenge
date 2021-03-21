@@ -66,8 +66,8 @@
 </template>
 
 <script>
-import LineChart from './LineChart.js'
-import DoughNut from './DoughNut.js'
+import LineChart from '../charts/LineChart.js'
+import DoughNut from '../charts/DoughNut.js'
 if (document.getElementById('line-chart')) {
   var ctx = document.getElementById('line-chart').getContext('2d')
   var gradientFill = ctx.createLinearGradient(0, 50, 0, 300)
