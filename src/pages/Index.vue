@@ -6,6 +6,7 @@
           <p class="title">8 tasks completed out of 10</p>
           <p class="show">Show: <span> This week</span></p>
         </div>
+        <q-linear-progress :value="progress" rounded color="#2ed47a" class="q-mt-sm progress" />
         <p class="day">23 December, Sunday</p>
         <q-separator/>
         <q-card-section>
@@ -70,6 +71,7 @@ export default {
   components: { LineChart },
   data () {
     return {
+      progress: 0.4,
       gradientFill: null,
       datacollection: {
         labels: ['1 Dec', '8 Dec', '16 Dec', '31 Dec'],
@@ -169,6 +171,11 @@ export default {
         color: #109cf1;
       }
     }
+  }
+  .progress {
+    margin: 0px 24px;
+    // padding: 0px 24px;
+    // width: 100%;
   }
   .day {
     padding: 16px 24px;
