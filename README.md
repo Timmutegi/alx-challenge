@@ -1,5 +1,5 @@
 # ALX Front End Coding Challenge
-    Author: Timothy Mbaka
+    Author: Timothy Mutegi
 
 ## Application Purpose
     This is a simple web application meant to meet the requirement for the ALX Front-End Engineer coding assignment.
