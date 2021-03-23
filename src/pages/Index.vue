@@ -6,15 +6,17 @@
           <p class="title">8 tasks completed out of 10</p>
           <p class="show">Show: <span> This week</span></p>
         </div>
+        <!-- LINEAR PROGRESS BAR -->
         <div class="progress">
           <q-linear-progress :value="progress" rounded color="green" class="q-mt-sm" />
         </div>
 
         <p class="day">23 December, Sunday</p>
+
         <q-separator/>
         <q-card-section>
           <q-card v-for="task in tasks" v-bind:key="task.id" class="task">
-           <q-card-section>
+            <q-card-section>
               <div class="item">
                 <p class="title">{{task.title}}</p>
                 <p class="type">{{task.type}}</p>
@@ -23,7 +25,7 @@
               <div class="item">
                 <div class="avatar">
                   <q-avatar size="24px">
-                    <img src="https://cdn.quasar.dev/img/boy-avatar.png">
+                    <img :src="task.ownerAvatar">
                   </q-avatar>
                   <p class="owner">{{task.owner}}</p>
                 </div>
@@ -80,6 +82,7 @@ export default {
     return {
       progress: 0.8,
       gradientFill: null,
+      // LINEAR CHART DATA
       datacollection: {
         labels: ['1 Dec', '8 Dec', '16 Dec', '31 Dec'],
         datasets: [
@@ -90,6 +93,7 @@ export default {
           }
         ]
       },
+      // DOUGHNUT CHART DATA
       chartdata: {
         labels: ['Active', 'Completed', 'Ended'],
         datasets: [
@@ -100,11 +104,13 @@ export default {
           }
         ]
       },
+      // TASKS DATA
       tasks: [
         {
           id: 1,
           title: 'Send benefit review by Sunday',
           owner: 'George Fields',
+          ownerAvatar: 'https://cdn.quasar.dev/img/boy-avatar.png',
           type: 'Reminder',
           status: 'Completed',
           due: 'December 23, 2018'
@@ -113,6 +119,7 @@ export default {
           id: 2,
           title: 'Invite to office meet-up',
           owner: 'Rebecca Moore',
+          ownerAvatar: 'https://cdn.quasar.dev/img/boy-avatar.png',
           type: 'Call',
           status: 'Ended',
           due: 'December 23, 2018'
@@ -121,8 +128,10 @@ export default {
           id: 3,
           title: 'Office meet-up',
           owner: 'Lindsey Stroud',
+          ownerAvatar: 'https://cdn.quasar.dev/img/boy-avatar.png',
           type: 'Event',
           status: 'Completed',
+          isEnded: true,
           due: 'December 23, 2018'
         }
       ]

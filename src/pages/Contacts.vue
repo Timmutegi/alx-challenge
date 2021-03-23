@@ -3,7 +3,7 @@
     <div class="button">
       <q-btn color="primary" no-caps label="Add contact" @click="prompt = true" class="btn my-font"/>
     </div>
-
+    <!-- CONTACTS TABLE  -->
     <q-table
       class="table my-font"
       :data="data"
@@ -13,7 +13,7 @@
       :selected.sync="selected"
       :pagination="initialPagination"
     />
-
+    <!-- ADD CONTACT FORM  -->
     <q-dialog v-model="prompt">
       <q-card style="min-width: 350px">
         <q-card-section>
@@ -30,13 +30,20 @@
               :rules="[ val => val && val.length > 0 || 'Please input the name']"
             />
 
-            <q-select v-model="model" :options="options" />
+            <q-input
+              v-model="email"
+              placeholder='johndoe@gmail.com'
+              label="Email"
+              lazy-rules
+              :rules="[ val => val && val.length > 0 || 'A valid email is required']"
+            />
 
             <q-input
               v-model="associated"
-              placeholder='Lindsey Stroud '
+              placeholder='slack'
+              label="Company Name"
               lazy-rules
-              :rules="[ val => val && val.length > 0 || 'Please type something']"
+              :rules="[ val => val && val.length > 0 || 'The company name is required']"
             />
 
             <q-input
@@ -44,7 +51,7 @@
               placeholder='CEO'
               label="Title"
               lazy-rules
-              :rules="[ val => val && val.length > 0 || 'Please input the title']"
+              :rules="[ val => val && val.length > 0 || 'The title is required']"
             />
 
             <div>
@@ -62,19 +69,20 @@
 export default {
   data () {
     return {
+      // ADD CONTACT FORM FIELDS
       name: '',
       model: '',
+      email: '',
       associated: '',
       title: '',
-      options: [
-        'Office meet-up', 'Call', 'Event'
-      ],
       prompt: false,
+      // CONTACT TABLE PAGINATION
       initialPagination: {
         page: 1,
         rowsPerPage: 10
       },
       selected: [],
+      // CONTACT TABLE COLUMN NAMES
       columns: [
         { name: 'name', align: 'left', label: 'Name', field: 'name', style: 'font-weight: 600; font-size: 15px;' },
         { name: 'email', align: 'left', label: 'Email', field: 'email', classes: 'data' },
@@ -84,6 +92,7 @@ export default {
         { name: 'recent_activity', align: 'left', label: 'Recent Activity', field: 'recent_activity', classes: 'data' }
 
       ],
+      // CONTACT TABLE DATA
       data: [
         {
           id: 1,
@@ -179,6 +188,7 @@ export default {
     }
   },
   methods: {
+    // CONTACT FORM ONSUBMIT METHOD
     onSubmit () {
 
     },
@@ -186,6 +196,7 @@ export default {
     onReset () {
       this.name = null
       this.title = null
+      this.email = null
       this.associated = false
     }
   }

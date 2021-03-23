@@ -14,7 +14,7 @@
         </q-btn>
       </q-toolbar>
     </q-header>
-
+    <!-- SIDEBAR -->
     <q-drawer
       v-model="drawer"
       show-if-above
@@ -175,25 +175,7 @@ export default {
 <style lang="scss">
   .items {
     padding-left: 24px;
-    // .q-router-link--active {
-    //   color: #109cf1;
-    // }
-    // .title {
-    //   color: #334d6e;
-    //   font-weight: 500;
-    // }
-    // .icon {
-    //   color: #C2CFE0;
-    // }
-
-    // .title .active {
-    //   color: red;
-    //   font-weight: 500;
-    // }
-    // .icon {
-    //   color: #C2CFE0;
-    // }
-    // color: #C2CFE0;
+    color: #334d6e;
   }
   .app {
     color: #109cf1;
