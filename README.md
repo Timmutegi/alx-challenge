@@ -13,8 +13,14 @@ The application has been deployed on Heroku and can be accessed [here](https://p
 
 ## Interfaces
 ### Dashboard
-![Screenshot](/screenshots/Screenshot2.png)
+![Screenshot](/screenshots/DashboardFull.png)
+
+### Dashboard with sidebar collapsed
+![Screenshot](/screenshots/Dashboard.png)
 
 ### Contacts Page
-![Screenshot](/screenshots/Screenshot1.png)
+![Screenshot](/screenshots/Contacts.png)
+
+### Add contact
+![Screenshot](/screenshots/Add_Contact.png)
 
