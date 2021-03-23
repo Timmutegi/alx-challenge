@@ -2,7 +2,8 @@
     Author: Timothy Mutegi
 
 ## Application Purpose
-    This is a simple web application meant to meet the requirement for the ALX Front-End Engineer coding assignment.
+    This is a simple web application meant to meet the requirement for
+    the ALX Front-End Engineer coding assignment.
 
 ## Technologies Used
     The application is made up of a simple server created using Node JS & Express.
