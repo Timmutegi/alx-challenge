@@ -7,7 +7,10 @@ export default {
     options: {
       legend: {
         display: true,
-        position: 'right'
+        position: 'right',
+        labels: {
+          usePointStyle: true
+        }
       },
       responsive: true,
       maintainAspectRatio: false,
